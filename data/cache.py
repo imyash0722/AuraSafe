@@ -5,7 +5,7 @@ Used by the scanner to avoid redundant network calls.
 
 import json
 import sqlite3
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
 from data.db import get_connection
 
@@ -26,8 +26,8 @@ def get_cached_product(barcode: str) -> dict | None:
     if not row:
         return None
 
-    fetched_at = datetime.fromisoformat(row["fetched_at"])
-    if datetime.utcnow() - fetched_at > timedelta(hours=CACHE_TTL_HOURS):
+    fetched_at = datetime.fromisoformat(row["fetched_at"]).replace(tzinfo=timezone.utc)
+    if datetime.now(timezone.utc) - fetched_at > timedelta(hours=CACHE_TTL_HOURS):
         return None  # Stale — caller should re-fetch
 
     try:
@@ -48,7 +48,7 @@ def save_product(barcode: str, product: dict) -> None:
                 product_json = excluded.product_json,
                 fetched_at   = excluded.fetched_at
             """,
-            (barcode, json.dumps(product), datetime.utcnow().isoformat()),
+            (barcode, json.dumps(product), datetime.now(timezone.utc).isoformat()),
         )
         conn.commit()
     finally:

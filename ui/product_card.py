@@ -3,16 +3,17 @@ from ui import theme
 
 
 def build_product_card(page: ft.Page, product: dict, score: dict, disposal: list, user_profile: dict):
-    def score_bar(label: str, val: int, icon):
-        color = theme.score_color(val)
+    def score_bar(label: str, val, icon):
+        safe_val = val if isinstance(val, (int, float)) else 5
+        color = theme.score_color(int(safe_val))
         return ft.Column([
             ft.Row([
                 ft.Icon(icon, size=14, color=theme.TEXT_SEC),
                 ft.Text(label, size=12, color=theme.TEXT_SEC, expand=True),
-                ft.Text(f"{val}/10", size=12, weight=ft.FontWeight.W_700, color=color),
+                ft.Text(f"{safe_val}/10", size=12, weight=ft.FontWeight.W_700, color=color),
             ]),
             ft.ProgressBar(
-                value=val / 10,
+                value=safe_val / 10,
                 bgcolor=theme.SURFACE2,
                 color=color,
                 height=6,

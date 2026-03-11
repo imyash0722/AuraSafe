@@ -163,9 +163,3 @@ def loading_spinner(message="Loading..."):
     ], alignment=ft.MainAxisAlignment.CENTER, horizontal_alignment=ft.CrossAxisAlignment.CENTER, spacing=16)
 
 
-def empty_state(icon, message: str, sub: str = ""):
-    return ft.Column([
-        ft.Icon(icon, size=64, color=BORDER),
-        ft.Text(message, size=16, color=TEXT_SEC, text_align=ft.TextAlign.CENTER),
-        ft.Text(sub, size=12, color=TEXT_DIM, text_align=ft.TextAlign.CENTER) if sub else ft.Container(),
-    ], alignment=ft.MainAxisAlignment.CENTER, horizontal_alignment=ft.CrossAxisAlignment.CENTER, spacing=12)

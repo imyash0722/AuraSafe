@@ -243,7 +243,7 @@ def build_sehatsathi(page: ft.Page, navigate):
                     live_transcript,
                     ft.Container(height=2),
                     ft.Text(
-                        "If voice fails: enable Windows microphone privacy and set a default input device.",
+                        "Voice capture requires a microphone and the Vosk model. Not available on Android.",
                         size=11,
                         color=theme.TEXT_DIM,
                     ),

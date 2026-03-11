@@ -15,10 +15,9 @@ from ui import theme
 from ui.product_card import build_product_card
 
 
-_scanning = False
-
-
 def build_scanner(page: ft.Page, navigate, get_config):
+    _scan_lock = threading.Lock()
+
     result_view = ft.Ref[ft.Column]()
     barcode_field = ft.TextField(
         hint_text="Or type barcode manually...",
@@ -36,8 +35,7 @@ def build_scanner(page: ft.Page, navigate, get_config):
 
     # ── FilePicker for Android camera / gallery ──────────────────────────────
     def _on_image_picked(e: ft.FilePickerResultEvent):
-        global _scanning
-        _scanning = False
+        _scan_lock.release()
         if not e.files:
             status_text.value = "No image selected."
             page.update()
@@ -128,12 +126,10 @@ def build_scanner(page: ft.Page, navigate, get_config):
             threading.Thread(target=do_lookup, args=(code,), daemon=True).start()
 
     def on_camera_scan(_):
-        global _scanning
-        if _scanning:
+        if not _scan_lock.acquire(blocking=False):
             status_text.value = "Scan already in progress..."
             page.update()
             return
-        _scanning = True
 
         # ── Android: use FilePicker to capture / pick a photo ────────────────
         if is_android():
@@ -144,20 +140,19 @@ def build_scanner(page: ft.Page, navigate, get_config):
                 file_type=ft.FilePickerFileType.IMAGE,
                 allow_multiple=False,
             )
-            return
+            return  # lock released in _on_image_picked
 
         # ── Desktop: live OpenCV camera ───────────────────────────────────────
         if not cv2_available():
             status_text.value = "Camera unavailable. Enter barcode manually and tap Search."
             page.update()
-            _scanning = False
+            _scan_lock.release()
             return
 
         status_text.value = "Camera open. Point at barcode..."
         page.update()
 
         def _desktop_scan_worker():
-            global _scanning
             try:
                 found = scan_barcode_from_camera(timeout_frames=300)
                 if found:
@@ -172,7 +167,7 @@ def build_scanner(page: ft.Page, navigate, get_config):
                 status_text.value = f"Camera error: {ex}"
                 page.update()
             finally:
-                _scanning = False
+                _scan_lock.release()
 
         threading.Thread(target=_desktop_scan_worker, daemon=True).start()
 

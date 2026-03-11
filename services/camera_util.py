@@ -9,6 +9,7 @@ Android:
 - Image-based decode helpers are used by the UI flow (FilePicker capture/select).
 """
 
+import os
 import platform
 import re
 from typing import Optional

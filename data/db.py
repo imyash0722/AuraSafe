@@ -1,7 +1,7 @@
 import sqlite3
 import os
 import json
-from datetime import datetime
+from datetime import datetime, timezone
 
 DB_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "aurasafe.db")
 
@@ -118,7 +118,7 @@ def save_triage(symptoms: list, urgency: str, guidance: str):
     c.execute("""
         INSERT INTO triage_history (symptoms, urgency, guidance, timestamp)
         VALUES (?, ?, ?, ?)
-    """, (json.dumps(symptoms), urgency, guidance, datetime.utcnow().isoformat()))
+    """, (json.dumps(symptoms), urgency, guidance, datetime.now(timezone.utc).isoformat()))
     conn.commit()
     conn.close()
 
@@ -129,7 +129,7 @@ def save_scan(barcode: str, product_name: str, overall_score: int, verdict: str)
     c.execute("""
         INSERT INTO scan_history (barcode, product_name, overall_score, verdict, timestamp)
         VALUES (?, ?, ?, ?, ?)
-    """, (barcode, product_name, overall_score, verdict, datetime.utcnow().isoformat()))
+    """, (barcode, product_name, overall_score, verdict, datetime.now(timezone.utc).isoformat()))
     conn.commit()
     conn.close()
 

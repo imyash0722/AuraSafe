@@ -1,3 +1,5 @@
+import re
+
 from services.cpdat_matcher import match_ingredients_list
 from services.green_score import score_environmental_impact
 from typing import Optional
@@ -58,7 +60,8 @@ def score_product(product: dict, user_profile: dict) -> dict:
     # Check user allergies vs OFF allergens and ingredients text
     ingr_low = ingredients_text.lower()
     for allergy in user_allergies:
-        if allergy in off_allergens or allergy in ingr_low:
+        pattern = r'\b' + re.escape(allergy) + r'\b'
+        if allergy in off_allergens or re.search(pattern, ingr_low):
             personal_alerts.append(f"⚠️ Contains {allergy.title()} — matches your allergy")
             personal_risk = "UNSAFE_FOR_YOU"
 
@@ -66,7 +69,7 @@ def score_product(product: dict, user_profile: dict) -> dict:
     for condition in user_conditions:
         triggers = CONDITION_TRIGGERS.get(condition, [])
         for trigger in triggers:
-            if trigger in ingr_low:
+            if re.search(r'\b' + re.escape(trigger) + r'\b', ingr_low):
                 personal_alerts.append(f"⚠️ Contains {trigger.title()} — concern for {condition.title()}")
                 if personal_risk == "SAFE":
                     personal_risk = "CAUTION"
