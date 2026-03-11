@@ -16,7 +16,7 @@ AuraSafe is an Android app built with [Flet (Python)](https://flet.dev/) that co
 
 Built for **[Kalpana 6.0: Hack for Humanity](https://ieee.pes.edu/)** — organised by the **IEEE Club, PES University EC Campus**. Designed to work in low-connectivity environments.
 
----
+
 
 ## Architecture
 
@@ -58,7 +58,7 @@ Overall Score (1–10) =
 Verdict:  1–3 = SAFE   |   4–6 = CAUTION   |   7–10 = DANGER
 ```
 
----
+
 
 ## Getting Started
 
@@ -113,7 +113,7 @@ flet run main.py
 flet build apk
 ```
 
----
+
 
 ## Data Sources
 
@@ -123,7 +123,7 @@ flet build apk
 | [Open Food Facts](https://world.openfoodfacts.org/data) | Food product fallback with allergen data |
 | [EPA CPDat](https://comptox.epa.gov/dashboard/chemical-list/CPDAT) | Ingredient → chemical hazard mapping (bundled offline) |
 
----
+
 
 ## Safety Guardrails
 
@@ -132,7 +132,7 @@ flet build apk
 - All risk outputs display confidence labels and data provenance.
 - Unknown products are flagged explicitly — no hallucinated certainty.
 
----
+
 
 ## Tech Stack
 
@@ -142,7 +142,7 @@ flet build apk
 - **Barcodes:** OpenCV + pyzbar (desktop), FilePicker (Android)
 - **Hazard DB:** EPA CPDat (bundled JSON, offline)
 
----
+
 
 ## Team
 
@@ -155,7 +155,7 @@ Built at **Kalpana 6.0: Hack for Humanity** by the **IEEE Club, PES University E
 | Siddhi S Navale | Data & Backend Engineer | Barcode lookup, risk scoring engine, EPA CPDat hazard integration |
 | Tanusha Reva | Frontend Developer & UI/UX Designer | SehatSathi triage UI, voice recognition, app theme & design system |
 
----
+
 
 ## License
 
