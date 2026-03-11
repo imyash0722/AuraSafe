@@ -9,6 +9,7 @@ from services.camera_util import (
     cv2_available,
     is_android,
     scan_barcode_from_camera,
+    decode_barcode_zxing,
 )
 from ui import theme
 from ui.product_card import build_product_card
@@ -33,6 +34,42 @@ def build_scanner(page: ft.Page, navigate, get_config):
     result_container = ft.Column(ref=result_view, spacing=10)
     loading = ft.Column([theme.loading_spinner("Fetching product data...")], visible=False)
 
+    # ── FilePicker for Android camera / gallery ──────────────────────────────
+    def _on_image_picked(e: ft.FilePickerResultEvent):
+        global _scanning
+        _scanning = False
+        if not e.files:
+            status_text.value = "No image selected."
+            page.update()
+            return
+
+        path = e.files[0].path
+        if not path:
+            status_text.value = "Could not access the image file."
+            page.update()
+            return
+
+        status_text.value = "Decoding barcode from image..."
+        page.update()
+
+        def _decode_worker():
+            barcode = decode_barcode_zxing(path)
+            if barcode:
+                barcode_field.value = barcode
+                status_text.value = f"Scanned: {barcode}"
+                page.update()
+                threading.Thread(target=do_lookup, args=(barcode,), daemon=True).start()
+            else:
+                status_text.value = "No barcode found in image. Try again or enter manually."
+                page.update()
+
+        threading.Thread(target=_decode_worker, daemon=True).start()
+
+    image_picker = ft.FilePicker(on_result=_on_image_picked)
+    page.overlay.append(image_picker)
+    page.update()
+
+    # ── Lookup logic ─────────────────────────────────────────────────────────
     def do_lookup(barcode: str):
         barcode = barcode.strip()
         if not barcode:
@@ -62,7 +99,7 @@ def build_scanner(page: ft.Page, navigate, get_config):
                             [
                                 ft.Icon(ft.Icons.SEARCH_OFF, size=48, color=theme.BORDER),
                                 ft.Text("Product not found", size=16, color=theme.TEXT_SEC),
-                                ft.Text("Try manual ingredient entry below", size=12, color=theme.TEXT_DIM),
+                                ft.Text("Try manual barcode entry below", size=12, color=theme.TEXT_DIM),
                             ],
                             spacing=8,
                             horizontal_alignment=ft.CrossAxisAlignment.CENTER,
@@ -98,12 +135,18 @@ def build_scanner(page: ft.Page, navigate, get_config):
             return
         _scanning = True
 
+        # ── Android: use FilePicker to capture / pick a photo ────────────────
         if is_android():
-            status_text.value = "Desktop-only camera mode enabled. Enter barcode manually on Android."
+            status_text.value = "Opening camera..."
             page.update()
-            _scanning = False
+            image_picker.pick_files(
+                dialog_title="Capture or select a barcode image",
+                file_type=ft.FilePickerFileType.IMAGE,
+                allow_multiple=False,
+            )
             return
 
+        # ── Desktop: live OpenCV camera ───────────────────────────────────────
         if not cv2_available():
             status_text.value = "Camera unavailable. Enter barcode manually and tap Search."
             page.update()
@@ -145,7 +188,10 @@ def build_scanner(page: ft.Page, navigate, get_config):
                             content=ft.Row(
                                 [
                                     ft.Icon(ft.Icons.CAMERA_ALT, color="white", size=24),
-                                    ft.Text("Scan with Camera", size=15, color="white", weight=ft.FontWeight.W_700),
+                                    ft.Text(
+                                        "Scan with Camera",
+                                        size=15, color="white", weight=ft.FontWeight.W_700,
+                                    ),
                                 ],
                                 alignment=ft.MainAxisAlignment.CENTER,
                                 spacing=10,
@@ -166,7 +212,12 @@ def build_scanner(page: ft.Page, navigate, get_config):
                         ft.Container(height=8),
                         barcode_field,
                         ft.Container(height=8),
-                        theme.primary_button("Search", on_click=on_scan_click, icon=ft.Icons.SEARCH, width=float("inf")),
+                        theme.primary_button(
+                            "Search",
+                            on_click=on_scan_click,
+                            icon=ft.Icons.SEARCH,
+                            width=float("inf"),
+                        ),
                         ft.Container(height=6),
                         status_text,
                         ft.Container(height=12),

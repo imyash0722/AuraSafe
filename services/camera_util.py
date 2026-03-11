@@ -229,6 +229,31 @@ def extract_possible_barcode_from_text(text: str) -> Optional[str]:
     return candidates[0]
 
 
+def decode_barcode_zxing(image_path: str) -> str | None:
+    """
+    Decode any barcode/QR from an image file using zxingcpp (cross-platform,
+    no native OpenCV required).  Works on Android.
+    """
+    if not image_path or not os.path.exists(image_path):
+        return None
+    try:
+        import zxingcpp
+        from PIL import Image as _Image
+
+        img = _Image.open(image_path).convert("RGB")
+        results = zxingcpp.read_barcodes(img)
+        if results:
+            return results[0].text or None
+    except Exception:
+        pass
+    return None
+
+
+def decode_qr_zxing(image_path: str) -> str | None:
+    """QR-specific decode via zxingcpp. Falls back to any barcode type."""
+    return decode_barcode_zxing(image_path)
+
+
 def decode_barcode_from_image_bytes(image_bytes: bytes) -> str | None:
     """
     Decode barcode/QR from raw image bytes using OpenCV when available.

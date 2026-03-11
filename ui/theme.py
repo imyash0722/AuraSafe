@@ -127,6 +127,35 @@ def gradient_header(title: str, subtitle: str = "", icon=None):
     )
 
 
+def gradient_header_with_icon(title: str, subtitle: str = ""):
+    """Home screen header that shows the app icon alongside the title."""
+    import os
+    icon_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "assets", "icon.png")
+    has_icon = os.path.exists(icon_path)
+    left_widget = (
+        ft.Image(src=icon_path, width=48, height=48, border_radius=12)
+        if has_icon
+        else ft.Icon(ft.Icons.SHIELD, color="white", size=32)
+    )
+    return ft.Container(
+        gradient=ft.LinearGradient(
+            colors=[PRIMARY, PRIMARY_LIGHT, ACCENT],
+            begin=ft.alignment.Alignment(-1, -1),
+            end=ft.alignment.Alignment(1, 1),
+        ),
+        padding=ft.padding.symmetric(horizontal=20, vertical=28),
+        border_radius=ft.border_radius.only(bottom_left=24, bottom_right=24),
+        content=ft.Row([
+            left_widget,
+            ft.Container(width=14),
+            ft.Column([
+                ft.Text(title, size=22, weight=ft.FontWeight.W_900, color="white"),
+                ft.Text(subtitle, size=13, color="#B3E5FC") if subtitle else ft.Container(),
+            ], spacing=2, expand=True),
+        ]),
+    )
+
+
 def loading_spinner(message="Loading..."):
     return ft.Column([
         ft.ProgressRing(width=48, height=48, stroke_width=4, color=ACCENT),

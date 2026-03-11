@@ -4,6 +4,8 @@ qrcode[pil]>=7.4
 requests>=2.31.0
 Pillow>=10.0.0
 cryptography>=41.0.0
+# Barcode/QR decode from images — works on Android (no native OpenCV required).
+zxing-cpp>=2.2.0
 # Optional desktop voice recognition stack (SehatSathi voice capture).
 vosk>=0.3.45
 sounddevice>=0.4.6

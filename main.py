@@ -26,6 +26,7 @@ def main(page: ft.Page):
     page.bgcolor = theme.BG
     page.padding = 0
     page.scroll = None
+    page.window.icon = "assets/icon.png"
 
     config = load_config()
     current_view = {"name": "home"}

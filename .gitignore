@@ -25,6 +25,10 @@ dist/
 # Vosk speech model (large binary ~68 MB — see README for download instructions)
 assets/models/
 
+# Generated Python files
+__pycache__/
+*.pyc
+
 # Session / runtime files
 chats/
 logs.json

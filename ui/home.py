@@ -95,10 +95,9 @@ def build_home(page: ft.Page, navigate):
 
     content = ft.ListView([
         # Header
-        theme.gradient_header(
+        theme.gradient_header_with_icon(
             "AuraSafe",
             "Your Humanitarian Safety Shield",
-            ft.Icons.SHIELD,
         ),
         ft.Container(height=16),
         ft.Container(

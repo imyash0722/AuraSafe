@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/icon.png" width="120" alt="AuraSafe Icon"/>
+</p>
+
 # AuraSafe
 
 **Offline-First Safety App for Households & Caregivers**
@@ -77,6 +81,12 @@ Copy the example config and add your [BarcodeLookup API key](https://www.barcode
 ```bash
 cp config.example.json config.json
 # Edit config.json and set your barcode_api_key
+```
+
+### Regenerate the app icon (optional)
+
+```bash
+python scripts/generate_icon.py
 ```
 
 ### Voice recognition model (optional — desktop only)

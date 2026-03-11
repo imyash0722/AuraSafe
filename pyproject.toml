@@ -1,9 +1,12 @@
-﻿[tool.flet]
+[tool.flet]
 org = "com.hackathon.aurasafe"
 description = "AuraSafe - Offline-First Humanitarian Safety Platform"
 product = "AuraSafe"
 company = "Hack for Humanity"
 version = "1.0.0"
+icon = "assets/icon.png"
+splash_color = "#0D0D1A"
+splash_dark_color = "#0D0D1A"
 
 [tool.flet.android]
 # Permissions needed by the app
@@ -17,14 +20,15 @@ permissions = [
 
 [tool.flet.python]
 # Packages to include in the Android build.
-# opencv-python is excluded â€” too large and requires native libs not available on Android.
-# pyzbar is excluded â€” requires libzbar.so native lib not available.
-# cryptography is excluded â€” heavy native dep; not needed for core features on Android.
-# vosk and sounddevice are desktop-only for SehatSathi voice capture and are intentionally excluded here.
+# opencv-python is excluded — too large and requires native libs not available on Android.
+# pyzbar is excluded — requires libzbar.so native lib not available.
+# cryptography is excluded — heavy native dep; not needed for core features on Android.
+# vosk and sounddevice are desktop-only for SehatSathi voice capture.
+# zxing-cpp provides pre-built wheels for Android aarch64 — used for camera barcode/QR decode.
 packages = [
     "flet-permission-handler",
     "qrcode",
     "Pillow",
     "requests",
+    "zxing-cpp",
 ]
-

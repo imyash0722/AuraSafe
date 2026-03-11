@@ -9,6 +9,7 @@ from data.db import get_user_profile, save_user_profile
 
 def build_mediqr(page: ft.Page, navigate):
     profile = get_user_profile()
+    from services.camera_util import is_android, decode_qr_zxing
 
     # â”€â”€ QR state â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
     qr_image = ft.Image(src="", visible=False, width=220, height=220)
@@ -120,16 +121,56 @@ def build_mediqr(page: ft.Page, navigate):
 
 
 
-    def on_scan_camera(_):
-        from services.camera_util import scan_qr_from_camera, cv2_available, is_android
-
-        if is_android():
-            scan_status.value = "Desktop-only camera mode enabled. Use desktop webcam for MediQR scan."
+    # ── FilePicker for Android QR scan ──────────────────────────────────────
+    def _on_qr_image_picked(e: ft.FilePickerResultEvent):
+        if not e.files:
+            scan_status.value = "No image selected."
             page.update()
             return
+        path = e.files[0].path
+        if not path:
+            scan_status.value = "Could not access the image file."
+            page.update()
+            return
+        scan_status.value = "Decoding QR from image..."
+        page.update()
 
+        def _decode():
+            found = decode_qr_zxing(path)
+            if found:
+                result = mediqr_svc.decode_qr_data(found)
+                if result:
+                    scan_status.value = "MediQR decoded successfully"
+                    show_profile_card(result)
+                else:
+                    scan_status.value = "Not a valid MediQR code"
+            else:
+                scan_status.value = "No QR code found in image. Ensure it is clear and well-lit."
+            page.update()
+
+        threading.Thread(target=_decode, daemon=True).start()
+
+    qr_picker = ft.FilePicker(on_result=_on_qr_image_picked)
+    page.overlay.append(qr_picker)
+    page.update()
+
+    def on_scan_camera(_):
+        from services.camera_util import scan_qr_from_camera, cv2_available
+
+        # ── Android: use FilePicker ──────────────────────────────────────────
+        if is_android():
+            scan_status.value = "Opening camera..."
+            page.update()
+            qr_picker.pick_files(
+                dialog_title="Capture or select a MediQR image",
+                file_type=ft.FilePickerFileType.IMAGE,
+                allow_multiple=False,
+            )
+            return
+
+        # ── Desktop: live OpenCV camera ──────────────────────────────────────
         if not cv2_available():
-            scan_status.value = "Camera unavailable - install OpenCV for desktop scanning"
+            scan_status.value = "Camera unavailable — install OpenCV for desktop scanning"
             page.update()
             return
 
@@ -145,7 +186,7 @@ def build_mediqr(page: ft.Page, navigate):
                 else:
                     scan_status.value = "Not a valid MediQR code"
             else:
-                scan_status.value = "No QR code detected - ensure it is visible and well lit"
+                scan_status.value = "No QR code detected — ensure it is visible and well lit"
             page.update()
         except Exception as e:
             scan_status.value = f"Camera error: {e}"
