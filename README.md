@@ -148,12 +148,12 @@ flet build apk
 
 Built at **Kalpana 6.0: Hack for Humanity** by the **IEEE Club, PES University EC Campus**.
 
-| Name | Role |
-|------|------|
-| Yashwanth Karthik | Lead — Architecture, Android Build & Camera Integration |
-| Janaki Niharika | MediQR Module, Data Layer & Offline Caching |
-| Siddhi S Navale | Barcode Scanner, Risk Scoring & EPA CPDat Integration |
-| Tanusha Reva | SehatSathi Triage Engine, Voice Recognition & UI/UX |
+| Name | Title | Contributions |
+|------|-------|---------------|
+| Yashwanth Karthik | Full Stack & Mobile Developer | Architecture, Android build pipeline, camera integration, project lead |
+| Janaki Niharika | Backend Developer | MediQR module, SQLite data layer, offline caching strategy |
+| Siddhi S Navale | Data & Backend Engineer | Barcode lookup, risk scoring engine, EPA CPDat hazard integration |
+| Tanusha Reva | Frontend Developer & UI/UX Designer | SehatSathi triage UI, voice recognition, app theme & design system |
 
 ---
 
