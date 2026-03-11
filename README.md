@@ -14,7 +14,7 @@ AuraSafe is an Android app built with [Flet (Python)](https://flet.dev/) that co
 | **MediQR** | Generate a signed emergency medical profile QR code for first responders |
 | **SehatSathi** | Voice-first symptom triage with Red/Yellow/Green urgency classification |
 
-Built during a 24-hour hackathon. Designed to work in low-connectivity environments.
+Built for **[Kalpana 6.0: Hack for Humanity](https://ieee.pes.edu/)** — organised by the **IEEE Club, PES University EC Campus**. Designed to work in low-connectivity environments.
 
 ---
 
@@ -141,6 +141,19 @@ flet build apk
 - **Speech:** [Vosk](https://alphacephei.com/vosk/) (offline, desktop)
 - **Barcodes:** OpenCV + pyzbar (desktop), FilePicker (Android)
 - **Hazard DB:** EPA CPDat (bundled JSON, offline)
+
+---
+
+## Team
+
+Built at **Kalpana 6.0: Hack for Humanity** by the **IEEE Club, PES University EC Campus**.
+
+| Name | Role |
+|------|------|
+| Yashwanth Karthik | Lead — Architecture & Android |
+| Janaki Niharika | |
+| Siddhi S Navale | |
+| Tanusha Reva | |
 
 ---
 
