@@ -1,0 +1,10 @@
+flet>=0.21.0
+flet-permission-handler>=0.1.0
+qrcode[pil]>=7.4
+requests>=2.31.0
+Pillow>=10.0.0
+cryptography>=41.0.0
+# Optional desktop voice recognition stack (SehatSathi voice capture).
+vosk>=0.3.45
+sounddevice>=0.4.6
+

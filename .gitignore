@@ -1,0 +1,47 @@
+# API keys and secrets
+config.json
+
+# Local database
+aurasafe.db
+
+# Build artifacts
+build/
+.dart_tool/
+.metadata
+*.class
+*.apk
+*.aab
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+*.egg
+
+# Vosk speech model (large binary ~68 MB — see README for download instructions)
+assets/models/
+
+# Session / runtime files
+chats/
+logs.json
+shell_history
+.project_root
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db

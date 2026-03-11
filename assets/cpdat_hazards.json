@@ -1,0 +1,443 @@
+{
+  "sodium lauryl sulfate": {
+    "cas": "151-21-3",
+    "health_score": 6,
+    "env_score": 5,
+    "hazard_flags": ["skin irritant", "eye irritant", "endocrine disruptor (low concern)"],
+    "synonyms": ["sls", "sodium dodecyl sulfate", "sodium laurilsulfate", "sds"]
+  },
+  "sodium laureth sulfate": {
+    "cas": "9004-82-4",
+    "health_score": 5,
+    "env_score": 5,
+    "hazard_flags": ["skin irritant", "may contain 1,4-dioxane"],
+    "synonyms": ["sles", "sodium lauryl ether sulfate", "sodium polyethylene glycol lauryl ether sulfate"]
+  },
+  "triclosan": {
+    "cas": "3380-34-5",
+    "health_score": 8,
+    "env_score": 9,
+    "hazard_flags": ["endocrine disruptor", "antibiotic resistance", "aquatic toxicity", "bioaccumulative"],
+    "synonyms": ["irgasan", "aquasept", "sapoderm"]
+  },
+  "parabens": {
+    "cas": "94-13-3",
+    "health_score": 7,
+    "env_score": 6,
+    "hazard_flags": ["endocrine disruptor", "estrogen mimic", "reproductive toxicant"],
+    "synonyms": ["methylparaben", "propylparaben", "butylparaben", "ethylparaben", "isobutylparaben"]
+  },
+  "methylparaben": {
+    "cas": "99-76-3",
+    "health_score": 6,
+    "env_score": 5,
+    "hazard_flags": ["endocrine disruptor", "estrogen mimic"],
+    "synonyms": ["methyl 4-hydroxybenzoate", "methyl parahydroxybenzoate"]
+  },
+  "propylparaben": {
+    "cas": "94-13-3",
+    "health_score": 7,
+    "env_score": 6,
+    "hazard_flags": ["endocrine disruptor", "reproductive toxicant", "estrogen mimic"],
+    "synonyms": ["propyl 4-hydroxybenzoate", "propyl parahydroxybenzoate"]
+  },
+  "formaldehyde": {
+    "cas": "50-00-0",
+    "health_score": 9,
+    "env_score": 6,
+    "hazard_flags": ["known carcinogen", "skin sensitizer", "respiratory hazard"],
+    "synonyms": ["formalin", "methanal", "methylene oxide"]
+  },
+  "1,4-dioxane": {
+    "cas": "123-91-1",
+    "health_score": 8,
+    "env_score": 7,
+    "hazard_flags": ["probable carcinogen", "kidney toxicant", "liver toxicant"],
+    "synonyms": ["dioxane", "diethylene dioxide"]
+  },
+  "phthalates": {
+    "cas": "84-66-2",
+    "health_score": 8,
+    "env_score": 7,
+    "hazard_flags": ["endocrine disruptor", "reproductive toxicant", "developmental toxicant"],
+    "synonyms": ["diethyl phthalate", "dep", "deh", "dehp", "dbp", "dibutyl phthalate"]
+  },
+  "diethyl phthalate": {
+    "cas": "84-66-2",
+    "health_score": 7,
+    "env_score": 6,
+    "hazard_flags": ["endocrine disruptor", "reproductive toxicant"],
+    "synonyms": ["dep", "diethyl benzene-1,2-dicarboxylate"]
+  },
+  "benzene": {
+    "cas": "71-43-2",
+    "health_score": 10,
+    "env_score": 8,
+    "hazard_flags": ["known carcinogen", "leukemia risk", "bone marrow toxicant"],
+    "synonyms": ["benzol", "cyclohexatriene"]
+  },
+  "toluene": {
+    "cas": "108-88-3",
+    "health_score": 7,
+    "env_score": 6,
+    "hazard_flags": ["neurotoxicant", "developmental toxicant", "reproductive toxicant"],
+    "synonyms": ["toluol", "methylbenzene"]
+  },
+  "aspartame": {
+    "cas": "22839-47-0",
+    "health_score": 4,
+    "env_score": 2,
+    "hazard_flags": ["phenylketonuria risk (PKU)", "controversial: possible carcinogen (IARC Group 2B)"],
+    "synonyms": ["e951", "nutrasweet", "equal", "aspartyl phenylalanine methyl ester"]
+  },
+  "sucralose": {
+    "cas": "56038-13-2",
+    "health_score": 3,
+    "env_score": 4,
+    "hazard_flags": ["gut microbiome disruption (mild)", "environmental persistence"],
+    "synonyms": ["e955", "splenda", "trichlorogalactosucrose"]
+  },
+  "sodium nitrite": {
+    "cas": "7632-00-0",
+    "health_score": 6,
+    "env_score": 4,
+    "hazard_flags": ["nitrosamine formation risk", "potential carcinogen (processed meats)", "methemoglobinemia risk"],
+    "synonyms": ["e250", "natrium nitrit"]
+  },
+  "sodium nitrate": {
+    "cas": "7631-99-4",
+    "health_score": 5,
+    "env_score": 4,
+    "hazard_flags": ["converts to nitrite in body", "nitrosamine precursor"],
+    "synonyms": ["e251", "soda niter", "chile saltpeter"]
+  },
+  "monosodium glutamate": {
+    "cas": "142-47-2",
+    "health_score": 3,
+    "env_score": 1,
+    "hazard_flags": ["headache in sensitive individuals", "controversial: generally recognized as safe (GRAS)"],
+    "synonyms": ["msg", "e621", "sodium glutamate", "glutamic acid sodium salt"]
+  },
+  "bha": {
+    "cas": "25013-16-5",
+    "health_score": 7,
+    "env_score": 5,
+    "hazard_flags": ["possible carcinogen (IARC Group 2B)", "endocrine disruptor", "liver toxicant"],
+    "synonyms": ["butylated hydroxyanisole", "e320"]
+  },
+  "bht": {
+    "cas": "128-37-0",
+    "health_score": 6,
+    "env_score": 5,
+    "hazard_flags": ["possible carcinogen", "endocrine disruptor (mild)", "liver effects"],
+    "synonyms": ["butylated hydroxytoluene", "e321", "ionol"]
+  },
+  "red 40": {
+    "cas": "25956-17-6",
+    "health_score": 5,
+    "env_score": 3,
+    "hazard_flags": ["possible hyperactivity in children", "allergy trigger", "ADHD association"],
+    "synonyms": ["allura red", "e129", "fd&c red no. 40", "food red 17"]
+  },
+  "yellow 5": {
+    "cas": "1934-21-0",
+    "health_score": 5,
+    "env_score": 3,
+    "hazard_flags": ["aspirin sensitivity cross-reaction", "hyperactivity association", "allergy trigger"],
+    "synonyms": ["tartrazine", "e102", "fd&c yellow no. 5"]
+  },
+  "yellow 6": {
+    "cas": "2783-94-0",
+    "health_score": 5,
+    "env_score": 3,
+    "hazard_flags": ["allergy trigger", "hyperactivity association"],
+    "synonyms": ["sunset yellow", "e110", "fd&c yellow no. 6"]
+  },
+  "blue 1": {
+    "cas": "3844-45-9",
+    "health_score": 4,
+    "env_score": 3,
+    "hazard_flags": ["low concern", "hypersensitivity in rare cases"],
+    "synonyms": ["brilliant blue", "e133", "fd&c blue no. 1"]
+  },
+  "carrageenan": {
+    "cas": "9000-07-1",
+    "health_score": 5,
+    "env_score": 1,
+    "hazard_flags": ["gut inflammation (controversial)", "digestive issues"],
+    "synonyms": ["e407", "irish moss extract"]
+  },
+  "high fructose corn syrup": {
+    "cas": "0",
+    "health_score": 6,
+    "env_score": 3,
+    "hazard_flags": ["obesity link", "metabolic syndrome", "insulin resistance", "liver fat"],
+    "synonyms": ["hfcs", "corn syrup", "isoglucose", "glucose-fructose syrup"]
+  },
+  "trans fat": {
+    "cas": "0",
+    "health_score": 9,
+    "env_score": 2,
+    "hazard_flags": ["cardiovascular disease", "LDL increase", "HDL decrease", "inflammation"],
+    "synonyms": ["partially hydrogenated oil", "partially hydrogenated vegetable oil", "hydrogenated fat"]
+  },
+  "sodium benzoate": {
+    "cas": "532-32-1",
+    "health_score": 5,
+    "env_score": 3,
+    "hazard_flags": ["benzene precursor with vitamin C", "hyperactivity (children)", "allergy trigger"],
+    "synonyms": ["e211", "benzoic acid sodium salt"]
+  },
+  "potassium bromate": {
+    "cas": "7758-01-2",
+    "health_score": 8,
+    "env_score": 5,
+    "hazard_flags": ["known carcinogen", "kidney toxicant", "banned EU"],
+    "synonyms": ["e924", "bromic acid potassium salt"]
+  },
+  "acrylamide": {
+    "cas": "79-06-1",
+    "health_score": 9,
+    "env_score": 7,
+    "hazard_flags": ["probable carcinogen (IARC Group 2A)", "neurotoxicant", "forms in high-heat cooking"],
+    "synonyms": ["acrylic amide", "2-propenamide"]
+  },
+  "lead": {
+    "cas": "7439-92-1",
+    "health_score": 10,
+    "env_score": 9,
+    "hazard_flags": ["known carcinogen", "neurotoxicant", "developmental toxicant", "no safe level"],
+    "synonyms": ["plumbum", "pb"]
+  },
+  "mercury": {
+    "cas": "7439-97-6",
+    "health_score": 10,
+    "env_score": 10,
+    "hazard_flags": ["neurotoxicant", "developmental toxicant", "bioaccumulative", "no safe level"],
+    "synonyms": ["quicksilver", "hg", "methylmercury"]
+  },
+  "arsenic": {
+    "cas": "7440-38-2",
+    "health_score": 10,
+    "env_score": 8,
+    "hazard_flags": ["known carcinogen", "chronic poisoning", "skin lesions"],
+    "synonyms": ["as", "arsenicum"]
+  },
+  "gluten": {
+    "cas": "0",
+    "health_score": 7,
+    "env_score": 1,
+    "hazard_flags": ["celiac disease trigger", "gluten sensitivity", "autoimmune reaction"],
+    "synonyms": ["wheat gluten", "gliadin", "glutenin"]
+  },
+  "casein": {
+    "cas": "9000-71-9",
+    "health_score": 5,
+    "env_score": 1,
+    "hazard_flags": ["dairy allergy trigger", "lactose intolerant risk"],
+    "synonyms": ["milk protein", "sodium caseinate", "calcium caseinate"]
+  },
+  "lactose": {
+    "cas": "63-42-3",
+    "health_score": 4,
+    "env_score": 1,
+    "hazard_flags": ["lactose intolerance", "digestive distress"],
+    "synonyms": ["milk sugar", "4-o-beta-d-galactopyranosyl-d-glucose"]
+  },
+  "sulfur dioxide": {
+    "cas": "7446-09-5",
+    "health_score": 6,
+    "env_score": 5,
+    "hazard_flags": ["asthma trigger", "sulfite sensitivity", "respiratory irritant"],
+    "synonyms": ["e220", "sulphur dioxide", "so2"]
+  },
+  "potassium sorbate": {
+    "cas": "24634-61-5",
+    "health_score": 3,
+    "env_score": 2,
+    "hazard_flags": ["generally safe (GRAS)", "mild skin irritant"],
+    "synonyms": ["e202", "sorbic acid potassium salt"]
+  },
+  "citric acid": {
+    "cas": "77-92-9",
+    "health_score": 2,
+    "env_score": 1,
+    "hazard_flags": ["generally safe (GRAS)", "tooth enamel erosion at high concentrations"],
+    "synonyms": ["e330", "2-hydroxypropane-1,2,3-tricarboxylic acid"]
+  },
+  "titanium dioxide": {
+    "cas": "13463-67-7",
+    "health_score": 5,
+    "env_score": 4,
+    "hazard_flags": ["possible carcinogen via inhalation (IARC Group 2B)", "nano form concerns", "EU food ban"],
+    "synonyms": ["e171", "tio2", "titanium white"]
+  },
+  "propylene glycol": {
+    "cas": "57-55-6",
+    "health_score": 4,
+    "env_score": 3,
+    "hazard_flags": ["skin irritant", "absorption through skin", "kidney concern at high doses"],
+    "synonyms": ["1,2-propanediol", "propane-1,2-diol", "e1520"]
+  },
+  "aluminum": {
+    "cas": "7429-90-5",
+    "health_score": 6,
+    "env_score": 4,
+    "hazard_flags": ["neurotoxicant (chronic exposure)", "Alzheimer's association (controversial)", "bone toxicant"],
+    "synonyms": ["aluminium", "al", "alum"]
+  },
+  "perfluorooctanoic acid": {
+    "cas": "335-67-1",
+    "health_score": 9,
+    "env_score": 10,
+    "hazard_flags": ["probable carcinogen", "endocrine disruptor", "persistent organic pollutant", "bioaccumulative"],
+    "synonyms": ["pfoa", "c8", "perfluorooctanoate"]
+  },
+  "bisphenol a": {
+    "cas": "80-05-7",
+    "health_score": 8,
+    "env_score": 7,
+    "hazard_flags": ["endocrine disruptor", "estrogen mimic", "developmental toxicant", "reproductive toxicant"],
+    "synonyms": ["bpa", "4,4-isopropylidenediphenol"]
+  },
+  "peg": {
+    "cas": "25322-68-3",
+    "health_score": 4,
+    "env_score": 4,
+    "hazard_flags": ["ethylene oxide contamination risk", "1,4-dioxane risk", "penetration enhancer"],
+    "synonyms": ["polyethylene glycol", "macrogol", "carbowax"]
+  },
+  "fragrance": {
+    "cas": "0",
+    "health_score": 6,
+    "env_score": 5,
+    "hazard_flags": ["undisclosed chemicals", "allergen mix", "endocrine disruptors possible", "asthma trigger"],
+    "synonyms": ["parfum", "perfume", "aroma", "scent"]
+  },
+  "alcohol denat": {
+    "cas": "64-17-5",
+    "health_score": 3,
+    "env_score": 2,
+    "hazard_flags": ["skin drying", "VOC emission"],
+    "synonyms": ["denatured alcohol", "sd alcohol", "ethanol denatured"]
+  },
+  "zinc oxide": {
+    "cas": "1314-13-2",
+    "health_score": 3,
+    "env_score": 5,
+    "hazard_flags": ["aquatic toxicity (nano form)", "inhalation risk (powder)"],
+    "synonyms": ["zno", "zinc white", "calamine"]
+  },
+  "retinol": {
+    "cas": "68-26-8",
+    "health_score": 4,
+    "env_score": 2,
+    "hazard_flags": ["teratogen (high doses)", "sun sensitivity", "vitamin A toxicity risk"],
+    "synonyms": ["vitamin a", "all-trans retinol", "retinyl acetate"]
+  },
+  "hydroquinone": {
+    "cas": "123-31-9",
+    "health_score": 8,
+    "env_score": 6,
+    "hazard_flags": ["possible carcinogen", "skin depigmentation", "ochronosis risk", "banned in EU cosmetics"],
+    "synonyms": ["benzene-1,4-diol", "1,4-dihydroxybenzene", "quinol"]
+  },
+  "coal tar": {
+    "cas": "8007-45-2",
+    "health_score": 9,
+    "env_score": 7,
+    "hazard_flags": ["known carcinogen", "contains PAHs", "banned in EU"],
+    "synonyms": ["tar", "carbo-cort", "lavatar"]
+  },
+  "mineral oil": {
+    "cas": "8042-47-5",
+    "health_score": 4,
+    "env_score": 3,
+    "hazard_flags": ["petrochemical derivative", "pore clogging", "contaminant risk (MOAH)"],
+    "synonyms": ["paraffinum liquidum", "white mineral oil", "liquid paraffin"]
+  },
+  "menthol": {
+    "cas": "89-78-1",
+    "health_score": 3,
+    "env_score": 2,
+    "hazard_flags": ["skin sensitizer at high conc.", "cold/hot sensation", "eye irritant"],
+    "synonyms": ["l-menthol", "mint camphor", "peppermint camphor"]
+  },
+  "caffeine": {
+    "cas": "58-08-2",
+    "health_score": 3,
+    "env_score": 2,
+    "hazard_flags": ["stimulant", "cardiac sensitivity", "pregnancy risk (high doses)", "dependence"],
+    "synonyms": ["1,3,7-trimethylxanthine", "theine", "guaranine"]
+  },
+  "tannins": {
+    "cas": "1401-55-4",
+    "health_score": 2,
+    "env_score": 1,
+    "hazard_flags": ["iron absorption inhibitor", "stomach upset in excess"],
+    "synonyms": ["tannic acid", "gallotannin"]
+  },
+  "saccharin": {
+    "cas": "81-07-2",
+    "health_score": 4,
+    "env_score": 3,
+    "hazard_flags": ["removed from carcinogen list (once listed)", "bladder cancer (animal studies, high doses)"],
+    "synonyms": ["e954", "sweet'n low", "sodium saccharin"]
+  },
+  "silicon dioxide": {
+    "cas": "7631-86-9",
+    "health_score": 3,
+    "env_score": 2,
+    "hazard_flags": ["inhalation risk (crystalline form)", "generally safe as food additive"],
+    "synonyms": ["e551", "silica", "sio2", "amorphous silica"]
+  },
+  "xanthan gum": {
+    "cas": "11138-66-2",
+    "health_score": 2,
+    "env_score": 1,
+    "hazard_flags": ["generally safe (GRAS)", "digestive issues (excess)"],
+    "synonyms": ["e415", "xanthan"]
+  },
+  "carnauba wax": {
+    "cas": "8015-86-9",
+    "health_score": 1,
+    "env_score": 2,
+    "hazard_flags": ["generally safe (GRAS)"],
+    "synonyms": ["e903", "brazil wax", "palm wax"]
+  },
+  "soy lecithin": {
+    "cas": "8002-43-5",
+    "health_score": 2,
+    "env_score": 2,
+    "hazard_flags": ["soy allergy trigger", "generally safe (GRAS)"],
+    "synonyms": ["e322", "lecithin", "soya lecithin"]
+  },
+  "potassium chloride": {
+    "cas": "7447-40-7",
+    "health_score": 2,
+    "env_score": 1,
+    "hazard_flags": ["cardiac risk at very high doses", "generally safe as salt substitute"],
+    "synonyms": ["e508", "sylvite", "potassium salt"]
+  },
+  "sodium chloride": {
+    "cas": "7647-14-5",
+    "health_score": 2,
+    "env_score": 1,
+    "hazard_flags": ["hypertension risk (excess)", "generally safe"],
+    "synonyms": ["salt", "table salt", "rock salt", "halite"]
+  },
+  "acetic acid": {
+    "cas": "64-19-7",
+    "health_score": 2,
+    "env_score": 2,
+    "hazard_flags": ["corrosive (concentrated)", "generally safe (GRAS) in food"],
+    "synonyms": ["e260", "vinegar acid", "ethanoic acid"]
+  },
+  "ascorbic acid": {
+    "cas": "50-81-7",
+    "health_score": 1,
+    "env_score": 1,
+    "hazard_flags": ["kidney stones (very high doses)", "generally safe (GRAS)"],
+    "synonyms": ["vitamin c", "e300", "l-ascorbic acid"]
+  }
+}
