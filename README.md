@@ -150,10 +150,10 @@ Built at **Kalpana 6.0: Hack for Humanity** by the **IEEE Club, PES University E
 
 | Name | Role |
 |------|------|
-| Yashwanth Karthik | Lead — Architecture & Android |
-| Janaki Niharika | |
-| Siddhi S Navale | |
-| Tanusha Reva | |
+| Yashwanth Karthik | Lead — Architecture, Android Build & Camera Integration |
+| Janaki Niharika | MediQR Module, Data Layer & Offline Caching |
+| Siddhi S Navale | Barcode Scanner, Risk Scoring & EPA CPDat Integration |
+| Tanusha Reva | SehatSathi Triage Engine, Voice Recognition & UI/UX |
 
 ---
 
